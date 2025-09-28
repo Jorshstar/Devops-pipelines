@@ -5,20 +5,20 @@ on: # Trigger the workflow on push or pull request events but only for the main 
     branches: [ main ]
 
 jobs: # Defines the jobs that will run as part of the workflow
-build: # This job runs on Ubuntu latest
-  runs-on: ubuntu-latest
+  build: # This job runs on Ubuntu latest
+    runs-on: ubuntu-latest
 
-  steps: # Steps represent a sequence of tasks that will be executed as part of the job
-  - name: Checkout code # Sets up the Node.js environment for use in actions by adding it to the PATH
-    uses: actions/checkout@v5
+    steps: # Steps represent a sequence of tasks that will be executed as part of the job
+      - name: Checkout code # Sets up the Node.js environment for use in actions by adding it to the PATH
+        uses: actions/checkout@v5
 
-  - name: Set up Node.js # Sets up the Node.js environment for use in actions by adding it to the PATH
-    uses: actions/setup-node@v3
-    with:
-      node-version: '16' # Specifies the Node.js version to use
+      - name: Set up Node.js # Sets up the Node.js environment for use in actions by adding it to the PATH
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16' # Specifies the Node.js version to use
 
-  - name: Install dependencies # Installs the dependencies defined in package.json
-    run: npm install
+      - name: Install dependencies # Installs the dependencies defined in package.json
+        run: npm install
     
-  - name: Run Tests # Runs the test script defined in package.json to ensure code quality
-    run: npm test
+      - name: Run Tests # Runs the test script defined in package.json to ensure code quality
+        run: npm test
